@@ -31,7 +31,7 @@ public class Ejercicio3 extends javax.swing.JFrame {
         jLabelResultado = new javax.swing.JLabel();
         jLabelIntroduceNumero = new javax.swing.JLabel();
         jTextFieldNumero = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jButtonComprobar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,10 +47,10 @@ public class Ejercicio3 extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("COMPROBAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonComprobar.setText("COMPROBAR");
+        jButtonComprobar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonComprobarActionPerformed(evt);
             }
         });
 
@@ -61,7 +61,7 @@ public class Ejercicio3 extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
+                    .addComponent(jButtonComprobar)
                     .addComponent(jLabelComparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 634, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -78,7 +78,7 @@ public class Ejercicio3 extends javax.swing.JFrame {
                     .addComponent(jLabelIntroduceNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(jButtonComprobar)
                 .addGap(39, 39, 39)
                 .addComponent(jLabelComparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -87,15 +87,29 @@ public class Ejercicio3 extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextFieldNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNumeroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNumeroActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonComprobarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonComprobarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        try {
+            String numero = jTextFieldNumero.getText().replace(",", ".");
+            int num = Integer.parseInt(numero);
+
+            if (num % 2 == 0) {
+                jLabelResultado.setText("El numero introducido es par");
+
+            } else {
+                jLabelResultado.setText("El numero introducido es impar");
+            }
+        } catch (Exception e) {
+            jLabelResultado.setText("Debe introducir un número entero");
+        }
+    }//GEN-LAST:event_jButtonComprobarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -133,7 +147,7 @@ public class Ejercicio3 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonComprobar;
     private javax.swing.JLabel jLabelComparacion;
     private javax.swing.JLabel jLabelIntroduceNumero;
     private javax.swing.JLabel jLabelResultado;
